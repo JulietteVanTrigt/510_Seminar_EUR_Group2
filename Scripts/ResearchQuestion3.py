@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Mar 10 11:55:12 2020
-@author: Juliette
-"""
 # =============================================================================
 # RESEARCH QUESTION 3
 # This code produces the output of the third research question:
