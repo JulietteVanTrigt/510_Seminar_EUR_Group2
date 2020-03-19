@@ -9,11 +9,8 @@ from itertools import product
 from warnings import filterwarnings
 from linearmodels import PanelOLS
 
-#path = "C:/Users/daanw/OneDrive - Erasmus University Rotterdam/Uni/Master/Seminar/510Drive/Dengue_modelling/"
 path = ".../Dengue_modelling/"
-
 df = pd.read_csv(path + "Data/")
-
 
 # =============================================================================
 # Table 3: SARIMA(2,1,1)(1,0,0)12 for 2013-2016, aggregated over region
