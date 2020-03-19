@@ -12,8 +12,10 @@ The code needed for the analysis in this paper is given in three files, for each
 ### Research Question 1
 In this file, the code is provided for the first research question: "Does the SARIMA model achieve superior performance to a fixed effects model in modelling dengue incidence from mosquito density?". 
 This analysis is done on month-region level. As this question is answered with quantiles for mosquito density, these are first made in the code. 
-Then, the results for the SARIMA model are given from Table 3 in the paper. For this, the best fitting hyperparameters for the SARIMA are first calculated by 
-Last, the code for the results for the fixed effects, as stated in Table 4 in the paper, is given.
+
+Then, the results for the SARIMA model are given from Table 3 in the paper. To get the optimal values we try different hyperparameter settings, implement the SARIMA model per region, and summarize the AIC and BIC over each region. Then, using these hyperparameters, the SARIMA model is implemented aggregated over regions. 
+
+Last, the code for the results for the fixed effects, as stated in Table 4 in the paper, is given. The fixed effects model is done for three specification, as is stated in the paper. These three specifications can be compared using R^2, AIC, BIC, and OOS R^2 and OOS MAE using k-fold Cross Validation.  
 
 
 ### Research Question 2
