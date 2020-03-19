@@ -6,3 +6,10 @@ This study evaluates the forecasting performance of mosquito density for dengue 
 
 ## Data
 For this study, we have data about the number of dengue incidences, the mosquito density and some weather variables. The weather data is collected by the Google Earth Engine (https://developers.google.com/earth-engine/datasets/catalog/). Due to privacy concerns, not all data can be shared in this GitHub. Dengue incidences on monthly level can be found here: https://www.doh.gov.ph/statistics. Mosquito density can be found here: http://dengue.pchrd.dost.gov.ph/. 
+
+## Software Explanation
+### Research Question 1
+
+### Research Question 2
+
+### Research Question 3
