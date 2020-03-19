@@ -11,7 +11,9 @@ For this study, we have data about the number of dengue incidences, the mosquito
 The code needed for the analysis in this paper is given in three files, for each of the three research questions. Packages that are needed for the analysis, are given in the requirements.txt file.
 ### Research Question 1
 In this file, the code is provided for the first research question: "Does the SARIMA model achieve superior performance to a fixed effects model in modelling dengue incidence from mosquito density?". 
-
+This analysis is done on month-region level. As this question is answered with quantiles for mosquito density, these are first made in the code. 
+Then, the results for the SARIMA model are given from Table 3 in the paper. For this, the best fitting hyperparameters for the SARIMA are first calculated by 
+Last, the code for the results for the fixed effects, as stated in Table 4 in the paper, is given.
 
 
 ### Research Question 2
