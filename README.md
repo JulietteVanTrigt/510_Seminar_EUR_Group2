@@ -8,7 +8,10 @@ This study evaluates the forecasting performance of mosquito density for dengue 
 For this study, we have data about the number of dengue incidences, the mosquito density and some weather variables. The weather data is collected by the Google Earth Engine (https://developers.google.com/earth-engine/datasets/catalog/). Due to privacy concerns, not all data can be shared in this GitHub. Dengue incidences on monthly level can be found here: https://www.doh.gov.ph/statistics. Mosquito density can be found here: http://dengue.pchrd.dost.gov.ph/. 
 
 ## Software Explanation
-The code needed for the analysis in this paper is given in three files, for each of the three research questions. Packages that are needed for the analysis, are given in the requirements.txt file.
+The code needed for the analysis in this paper is given in four files, for each of the three research questions and the datapreparation. Packages that are needed for the analysis, are given in the requirements.txt file.
+
+### Data preparation
+
 ### Research Question 1
 In this file, the code is provided for the first research question: "Does the SARIMA model achieve superior performance to a fixed effects model in modelling dengue incidence from mosquito density?". 
 This analysis is done on month-region level. As this question is answered with quantiles for mosquito density, these are first made in the code. 
