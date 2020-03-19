@@ -19,7 +19,7 @@ Last, the code for the results for the fixed effects, as stated in Table 4 in th
 
 
 ### Research Question 2
-In this file, the code is provided for the first research question: "Does a model explaining dengue incidence based on weather data outperform a model based on mosquito density?". This analysis is done on weekly-region level and month-province level. First, the weekly and province level dataset are loaded. The code works out the province-level model but can also be used for the weekly-level model. 
+In this file, the code is provided for the first research question: "What is the importance of spatial- and temporal granularity in accurately modelling dengue incidence using mosquito density?". This analysis is done on weekly-region level and month-province level. First, the weekly and province level dataset are loaded. The code works out the province-level model but can also be used for the weekly-level model. 
 
 Then, variables are added to the dataframe; quantiles of mosquito density, its first and second lag, and the lag of log of dengue. 
 
