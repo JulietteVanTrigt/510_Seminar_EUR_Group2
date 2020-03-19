@@ -11,6 +11,13 @@ For this study, we have data about the number of dengue incidences, the mosquito
 The code needed for the analysis in this paper is given in four files, for each of the three research questions and the datapreparation. Packages that are needed for the analysis, are given in the requirements.txt file.
 
 ### Data preparation
+In this file, the code is provided for the data preparation. The mosquito data here is prepared to a full data set on month region level.
+Three different data sets, region-month, weekly and province, are imputed all the same way. All data sets are first loaded with corresponding geographical data.
+
+First weighted kNN is performed: for each observation, missing or not, its k (georgraphically) nearest neighbours are found and a count-weighted average of these neighbours is calculated. This gives a full data frame of imputed values (also for the non-missing). This is done for all three data sets.
+
+Then the missing values in the original dataframe are replaced by the imputed values such that a full dataframe is created. 
+
 
 ### Research Question 1
 In this file, the code is provided for the first research question: "Does the SARIMA model achieve superior performance to a fixed effects model in modelling dengue incidence from mosquito density?". 
