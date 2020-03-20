@@ -42,3 +42,5 @@ First, the prepared province level weather dataset is loaded. Preparations that 
 
 Then, the code for the three different specifications of the fixed effects is given. This results in the output of Table 7. Last, AIC is calculated from the output of the different model specifications.  
 
+### k-fold Cross-Validation 
+In this file, the code for the k-fold Cross-Calidation is shown. For the results that are stated in the paper, k is chosen as 10. The function ouotputs the Out-Of-Sample (OOS) R^2 and Mean-Absolute-Error (MAE). 
