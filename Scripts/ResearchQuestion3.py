@@ -11,11 +11,12 @@
 import pandas as pd
 import statsmodels.api as sm
 from linearmodels import PanelOLS
+from kfoldCV import kfoldfun
 
 #Load the prepared weather data 
 #Preparation is described in the papers
 path = "..." #define path
-df = pd.read_csv(path + "Project_27_01/Data/Prov2015_weatherNew_norm_logdengue2.csv")
+df = pd.read_csv(path + "/Data/Prov2015_weatherNew_norm_logdengue2.csv")
 df['Date'] = pd.to_datetime(df['Date'])
 df = df.set_index(['Province', 'Date'])
 
@@ -51,27 +52,30 @@ def Panel_output(endo,exog):
 # Three model specifications (restults from Section 6.3)
 # =============================================================================
 #Specification 1
-S1 = Panel_output(df['log_dengue'],['log_lag_dengue',
-                                    'W1l_cat2','W1l_cat3','W1l_cat4',
-                                    'W2l_cat2','W2l_cat3','W2l_cat4',
-                                    'W10l_cat2','W10l_cat3','W10l_cat4'])
-#Sepcification 2
-S2 = Panel_output(df['log_dengue'],['W1l_cat2','W1l_cat3','W1l_cat4',
-                                    'W2l_cat2','W2l_cat3','W2l_cat4',
-                                    'W10l_cat2','W10l_cat3','W10l_cat4',         
-                                    
-                                    'W1ll_cat2','W1ll_cat3','W1ll_cat4',
-                                    'W2ll_cat2','W2ll_cat3','W2ll_cat4',
-                                    'W10ll_cat2','W10ll_cat3','W10ll_cat4'])
-#Specification 3
-S3 = Panel_output(df['log_dengue'],['log_lag_dengue',
-                                    'W1l_cat2','W1l_cat3','W1l_cat4',
-                                    'W2l_cat2','W2l_cat3','W2l_cat4',
-                                    'W10l_cat2','W10l_cat3','W10l_cat4',
-                                    'W1ll_cat2','W1ll_cat3','W1ll_cat4',
-                                    'W2ll_cat2','W2ll_cat3','W2ll_cat4',
-                                    'W10ll_cat2','W10ll_cat3','W10ll_cat4',])
+exog1 = ['log_lag_dengue',
+        'W1l_cat2','W1l_cat3','W1l_cat4',
+        'W2l_cat2','W2l_cat3','W2l_cat4',
+        'W10l_cat2','W10l_cat3','W10l_cat4']
+S1 = Panel_output(df['log_dengue'],exog1)
 
+#Sepcification 2
+exog2 = ['W1l_cat2','W1l_cat3','W1l_cat4',
+        'W2l_cat2','W2l_cat3','W2l_cat4',
+        'W10l_cat2','W10l_cat3','W10l_cat4',
+        'W1ll_cat2','W1ll_cat3','W1ll_cat4',
+        'W2ll_cat2','W2ll_cat3','W2ll_cat4',
+        'W10ll_cat2','W10ll_cat3','W10ll_cat4']
+S2 = Panel_output(df['log_dengue'],exog2)
+
+#Specification 3
+exog3 = ['log_lag_dengue',
+        'W1l_cat2','W1l_cat3','W1l_cat4',
+        'W2l_cat2','W2l_cat3','W2l_cat4',
+        'W10l_cat2','W10l_cat3','W10l_cat4',
+        'W1ll_cat2','W1ll_cat3','W1ll_cat4',
+        'W2ll_cat2','W2ll_cat3','W2ll_cat4',
+        'W10ll_cat2','W10ll_cat3','W10ll_cat4']
+S3 = Panel_output(df['log_dengue'],exog3)
 
 # AIC and BIC
 AIC_1 = 2 * (len(S1[1]) - S1[0])
@@ -87,3 +91,22 @@ print(AIC_2)
 print("Output Specification 3:")
 print(S3[2])
 print(AIC_3)
+
+# =============================================================================
+# k-fold Cross-Validation, remove NA in the lags for specification 1&3
+# =============================================================================
+df = pd.read_csv(path + '/Data/Prov2015_weatherNew_norm_logdengue2.csv')
+df['Date'] = pd.to_datetime(df['Date'])
+df = df.set_index(['Province', 'Date'])
+
+y2 = df['log_dengue']
+X2 = sm.add_constant(df.loc[:,exog2])
+
+df = df[pd.notnull(df['log_lag_dengue'])]
+y = df['log_dengue']
+X1 = sm.add_constant(df.loc[:,exog1])
+X3 = sm.add_constant(df.loc[:,exog3]) 
+
+kfoldfun(y, X1)
+kfoldfun(y2, X2)
+kfoldfun(y, X3)
