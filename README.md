@@ -36,7 +36,7 @@ Then, variables are added to the dataframe; quantiles of mosquito density, its f
 Last, the code for the three different specifications of the fixed effects is given resulting in Table 5 of the paper. If the weekly-level dataset is selected in the beginning, this will result in the output of Table 6.
 
 ### Research Question 3
-In this file, the code is provided for the third research question: "Does a model explaining dengue incidence based on weather data outperform a model based on mosquito density?". This analysis is done on month-province level for the year 2015. 
+In this file, the code is provided for the third research question: "Does a model explaining dengue incidence based on weather data outperform a model based on mosquito density?". This analysis is done on month-province level.
 
 First, the prepared province level weather dataset is loaded. Preparations that are made can be found in the Section 4.5 and 5.2.4. 
 
