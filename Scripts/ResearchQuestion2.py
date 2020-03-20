@@ -9,7 +9,9 @@ from linearmodels.panel import PooledOLS
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import KFold
 import statsmodels.api as sm
-os.chdir("/Users/sarak/Erasmus University Rotterdam/Daan Wassenberg - 510Drive/Dengue_modelling")
+from kfoldCV import kfoldfun
+
+os.chdir(".../Dengue_modelling")
 
 #load prepared province data
 #Here the weekly data is also loaded. Methods are applied to the province level,
@@ -87,6 +89,6 @@ X2 = sm.add_constant(dfProvince.loc[:,['M_cat2','M_cat3','M_cat4','Ml_cat2','Ml_
 X3 = sm.add_constant(dfProvince.loc[:,['lag_log_dengue','M_cat2','M_cat3','M_cat4','Ml_cat2','Ml_cat3','Ml_cat4','Ml2_cat2','Ml2_cat3','Ml2_cat4']]).loc[dfProvince['nona']]
 
 #on these sets the kfold function can be called
-
-
-
+kfoldfun(y, X1, 10) 
+kfoldfun(y, X2, 10) 
+kfoldfun(y, X3, 10) 
