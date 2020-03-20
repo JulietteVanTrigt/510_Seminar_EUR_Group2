@@ -135,7 +135,7 @@ exog = ['log_lag_dengue',
         'M_cat2','M_cat3','M_cat4']
 X = sm.add_constant(df1.loc[:,exog])    
 y = df1['log_dengue']
-kfoldfun(y, X) 
+kfoldfun(y, X, 10) 
 
 # Specification 2
 print("Output Specification 2:")
@@ -146,7 +146,7 @@ exog = ['log_lag_dengue',
         'M_cat2','M_cat3','M_cat4']
 X = sm.add_constant(df2.loc[:,exog])    
 y = df2['log_dengue']
-kfoldfun(y, X) 
+kfoldfun(y, X, 10) 
 
 # Specification 3
 print("Output Specification 3:")
@@ -157,4 +157,4 @@ exog = ['log_lag_dengue',
         'M_cat2','M_cat3','M_cat4']
 X = sm.add_constant(df3.loc[:,exog])    
 y = df3['log_dengue']
-kfoldfun(y, X) 
+kfoldfun(y, X, 10) 
